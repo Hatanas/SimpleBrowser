@@ -16,7 +16,7 @@ object Main extends JFXApp {
     loader.load()
     val root = loader.getRoot[Parent]
     val controller = loader.getController[BrowserControllerInitializable]
-    controller.initialize(parameters.raw(0))
+    controller.initialize(parameters.raw.applyOrElse(0, (n: Int) => "404.html"))
 
     stage = new PrimaryStage() {
         title = "Simple Browser"

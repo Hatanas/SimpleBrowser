@@ -1,10 +1,11 @@
 name := "SimpleBrowser"
 
-version := "1.0"
+version := "0.0.1"
 
 scalaVersion := "2.11.8"
 
 unmanagedJars in Compile += Attributed.blank(file(System.getenv("JAVA_HOME") + "/jre/lib/ext/jfxrt.jar"))
+assemblyJarName in assembly := { s"${name.value}-${version.value}.jar" }
 
 libraryDependencies ++= List(
     "org.scalafx" %% "scalafx" % "8.0.92-R10",
